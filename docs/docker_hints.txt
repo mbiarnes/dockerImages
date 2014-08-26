@@ -1,0 +1,122 @@
+start docker..:
+
+sudo -i
+systemctl start docker
+
+as sudo: 
+
+# Building an image from dockerFile. Create a new image using the Dockerfile
+docker build -t="<imageRef>" /... (Path to Dockerfile)
+
+# Create a container with our new image
+sudo docker run -t -i <imageRef> /bin/bash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aqui el resumen de comandos docker:
+
+------------------------------------------------------
+# Search images
+docker search imageName
+
+# Download a docker image. (imageName: 'user/name')
+docker pull imageName  
+
+# Execute command on image
+docker run imageName echo "hello"
+
+# Find the containerID
+docker ps -l
+
+# Commit basically saves the difference between the old image and the new state (newName: "user/name")
+docker commit containerID newName
+
+# Usefull information about container
+docker inspect containerID
+
+# Push yout image to the docker hub registry
+docker push newName
+
+# Docker logs
+sudo docker logs insane_babbage
+
+# stop container
+docker stop insane_babbage
+
+# Build image
+docker build -t xpass-base .
+
+------------------------------------------------------------
+# Containers:
+-------------
+# list containers (-l:last container started)  (-a:all containers)
+docker ps -l
+
+# Run a container (-d:background)  (-P:map any required network ports inside our container to our host) (-p: portDockerortExt)(-i:interactive) (-t:imageRef)
+docker run -d -P imageName command..
+
+# View external port mapping from container
+docker port containerID containerPort
+
+# View logs (-f:like tailf)
+docker logs -f containerID
+
+# View docker procs
+docker top containerID
+
+#returns a JSON hash of useful configuration and status information about Docker containers.
+docker inspect containerID
+
+# Container stop
+docker stop containerID
+
+# Container restart
+docker restart containerID
+
+# Container remove
+docker rm containerID
+
+---------------------------------------------------------------
+# Images
+-------------
+# Display local docker images
+docker images
+
+# To imageReg:refer a tagged image as ourUser/repository:tag or by imageID. If a tag is not specified.. the default used image is repository:latest
+
+# Pull a preloaded image
+docker pull imageR
+
+# Search an image
+docker search nameToSearch
+
+# Updating and commiting an existing image
+sudo docker run -t -i ImageRef /bin/bash
+# Execute commands on localImageRef (exit to finish updates)
+# Commit changes in a new image
+docker commit -m="commit message" -a="Author" [containerID | repoUser/name:tag
+
+# Building an image from dockerFile. Create a new image using the Dockerfile
+docker build -t="imageRef"
+# Create a container with our new image
+sudo docker run -t -i ImageRef /bin/bash
+# Tagging an image
+sudo docker tag imageID newImageRef
+
+# Pushing image to Docker Hub
+docker push imageRef
+
+# Removing image form Docker host
+docker rmi ImageRef

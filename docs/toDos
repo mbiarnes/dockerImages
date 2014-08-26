@@ -1,0 +1,21 @@
+Install ..:
+
+- install MVN
+- install git
+- install jdk 1.6
+- install apache
+
+- create users:
+  - deploy-brms-as
+  - deploy-brms-eap
+  - deploy-brms-eap-modules
+  - deploy-brms-tomcat
+  - deploy-brms-product
+  - deploy-masdtyer-brms-as
+  
+  - deploy-bpms-as
+  - deploy-bpms-eap
+  - deploy-bpms-tomcat
+  
+  - master-build
+  - branch-build
